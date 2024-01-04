@@ -1,0 +1,6 @@
+version: 1.0
+template: java-17-spring-boot-project
+replacements:
+  package: com.roche.sample
+
+

@@ -1,0 +1,16 @@
+# To run on silicon series mac
+
+FROM --platform=arm64 eclipse-temurin:17-jdk-focal
+
+VOLUME /tmp
+WORKDIR /app
+
+ARG JAR_FILE
+
+RUN apt-get update
+RUN apt-get install -y postgresql-client
+
+COPY ${JAR_FILE} app.jar
+COPY ops ./ops
+
+CMD ["java","-jar","/app.jar"]
